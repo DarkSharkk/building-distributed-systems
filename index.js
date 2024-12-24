@@ -3,11 +3,11 @@ const { Pool } = require('pg');
 
 const app = express();
 const pool = new Pool({
-    user: 'user',
-    host: 'localhost',
-    database: 'nums',
-    password: 'root',
-    port: 5432,
+    user: process.env.POSTGRES_USER,
+    host: process.env.DB_HOST,
+    database: process.env.POSTGRES_DB,
+    password: process.env.POSTGRES_PASSWORD,
+    port: process.env.DB_PORT,
 });
 
 app.use(express.json());
